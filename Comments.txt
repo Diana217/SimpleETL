@@ -1,0 +1,6 @@
+Number of rows in the table after running the program: 29840
+
+
+For a 10GB CSV:
+1. Avoid in-memory dedupe - bulk load into a staging table, then use SQL INSERT ... WHERE NOT EXISTS to handle duplicates and capture them.
+2. Use partitioned/streamed bulk loads with parallel SqlBulkCopy to improve throughput.
